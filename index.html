@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>İlk Durak Ürgüp · Turizm Ortak Akıl Çalıştayı</title>
+<meta name="description" content="Ürgüp turizminin geleceğini birlikte konuşuyoruz. 15 Aralık 2026, Mustafa Otel, Ürgüp. Ön ankete katılın, katılımcı adayı olmak için başvurun.">
+<meta property="og:title" content="İlk Durak Ürgüp · Turizm Ortak Akıl Çalıştayı">
+<meta property="og:description" content="15 Aralık 2026, Ürgüp. Ürgüp turizminin geleceği için ortak akıl masası kuruyoruz.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#5b3a24">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,400;0,600;0,800;0,900;1,400&display=swap" rel="stylesheet">
+
+<!--
+  AYARLAR — bağlantıları buradan değiştirin.
+  Sayfadaki tüm anket ve başvuru düğmeleri bu iki adresi kullanır.
+-->
+<script>
+  window.SITE = {
+    anket:   "https://forms.gle/e4P4aVhudzz5o2Wa9",
+    basvuru: "https://forms.gle/D7G8oa2fEHLxkunYA"
+  };
+</script>
+
+<style>
+  :root{
+    --kahve:#5b3a24;      /* turistik yön levhası kahvesi */
+    --kahve-koyu:#3e2717;
+    --tuf:#e4e2dc;        /* ignimbirit grisi */
+    --tuf-acik:#f3f2ee;
+    --murekkep:#22201d;
+    --soluk:#5f5a52;
+    --serit:#f0b323;      /* yol çizgisi sarısı */
+    --beyaz:#ffffff;
+    --cizgi:#cfccc4;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+  body{
+    margin:0;background:var(--tuf-acik);color:var(--murekkep);
+    font-family:"Overpass",system-ui,sans-serif;font-size:1.125rem;line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--kahve)}
+  :focus-visible{outline:3px solid var(--serit);outline-offset:3px}
+  .kap{max-width:1080px;margin:0 auto;padding:0 20px}
+
+  /* ---------- Üst şerit ---------- */
+  .ust{background:var(--beyaz);border-bottom:1px solid var(--cizgi);font-size:.95rem}
+  .ust .kap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:12px;padding-bottom:12px;flex-wrap:wrap}
+  .duzenleyici{display:flex;flex-direction:column;gap:4px;text-decoration:none;color:var(--soluk)}
+  .duzenleyici span{font-size:.85rem;font-weight:600}
+  .duzenleyici img{height:68px;width:auto;display:block}
+  .ust nav{display:flex;gap:20px;flex-wrap:wrap}
+  .ust nav a{color:var(--kahve);font-weight:600;text-decoration:none}
+  .ust nav a:hover{text-decoration:underline}
+
+  /* ---------- Hero: levha ---------- */
+  .hero{background:var(--tuf);padding:56px 0 0;position:relative;overflow:hidden}
+  .hero .kap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:48px;align-items:end}
+  .levha-direk{display:flex;flex-direction:column;align-items:center}
+  .levha{
+    width:100%;background:var(--kahve);color:var(--beyaz);
+    border-radius:18px;padding:10px;
+    box-shadow:0 2px 0 var(--kahve-koyu),0 18px 30px -18px rgba(40,25,15,.55);
+    transform-origin:50% 100%;
+    animation:dik .9s cubic-bezier(.2,.9,.3,1.2) both;
+  }
+  @keyframes dik{from{transform:rotate(-6deg) translateY(30px);opacity:0}to{transform:none;opacity:1}}
+  .levha-ic{border:4px solid var(--beyaz);border-radius:11px;padding:28px 30px 26px;display:grid;grid-template-columns:auto 1fr;gap:6px 24px;align-items:center}
+  .piktogram{grid-row:1 / span 2;width:96px;height:96px}
+  .levha-ust{font-weight:600;font-size:1.25rem;letter-spacing:.01em;opacity:.92}
+  .levha h1{margin:0;font-weight:900;font-size:clamp(3rem,8vw,5.6rem);line-height:.92;letter-spacing:-.02em}
+  .levha-alt{grid-column:1 / -1;display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-top:2px solid rgba(255,255,255,.55);margin-top:18px;padding-top:14px;font-weight:600;font-size:1.15rem;flex-wrap:wrap}
+  .levha-alt .km{font-weight:800;font-size:1.6rem}
+  .direkler{display:flex;gap:44%;justify-content:center;width:100%}
+  .direkler span{display:block;width:14px;height:90px;background:linear-gradient(90deg,#8d8a83,#b9b6ae 45%,#8d8a83)}
+  .yol{height:28px;background:#4a4743;position:relative;margin-top:-1px}
+  .yol::after{content:"";position:absolute;left:0;right:0;top:12px;height:4px;
+    background:repeating-linear-gradient(90deg,var(--serit) 0 46px,transparent 46px 86px)}
+
+  .hero-yazi{padding-bottom:118px}
+  .hero-yazi .alt-baslik{font-size:clamp(1.6rem,3vw,2.1rem);font-weight:800;line-height:1.15;margin:0 0 18px;letter-spacing:-.01em;color:var(--murekkep)}
+  .hero-yazi p{margin:0 0 28px;color:#3f3b35;max-width:34em}
+  .dugmeler{display:flex;gap:12px;flex-wrap:wrap}
+  .dugme{
+    display:inline-block;text-decoration:none;font-weight:800;font-size:1.05rem;
+    padding:14px 22px;border-radius:10px;border:3px solid var(--kahve);
+  }
+  .dugme.dolu{background:var(--kahve);color:var(--beyaz)}
+  .dugme.dolu:hover{background:var(--kahve-koyu);border-color:var(--kahve-koyu)}
+  .dugme.bos{color:var(--kahve);background:transparent}
+  .dugme.bos:hover{background:var(--beyaz)}
+
+  /* ---------- Bölümler ---------- */
+  section{padding:84px 0}
+  h2{font-size:clamp(1.9rem,4vw,2.6rem);font-weight:900;line-height:1.1;margin:0 0 20px;letter-spacing:-.015em}
+  .giris{max-width:40em;color:var(--soluk);margin:0 0 40px}
+
+  .manzara{margin:0;position:relative;background:var(--tuf)}
+  .manzara img{display:block;width:100%;height:clamp(240px,40vw,520px);object-fit:cover;object-position:center 64%}
+  .manzara figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 0 18px;color:#fff;font-weight:600;
+    background:linear-gradient(180deg,rgba(0,0,0,0),rgba(30,20,12,.55))}
+  .neden{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start}
+  .neden blockquote{
+    margin:0;font-size:clamp(1.5rem,3vw,2rem);font-weight:800;line-height:1.25;
+    border-left:8px solid var(--serit);padding-left:24px;
+  }
+  .neden p{margin:0 0 16px}
+
+  /* Güzergâh: dört durak */
+  .guzergah{background:var(--beyaz);border-top:1px solid var(--cizgi);border-bottom:1px solid var(--cizgi)}
+  .duraklar{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));position:relative}
+  .duraklar::before{content:"";position:absolute;left:0;right:0;top:27px;height:6px;background:var(--tuf);border-radius:3px}
+  .durak{position:relative;padding-right:24px}
+  .durak .no{
+    position:relative;width:60px;height:60px;border-radius:50%;
+    background:var(--beyaz);border:6px solid var(--kahve);color:var(--kahve);
+    display:grid;place-items:center;font-weight:900;font-size:1.4rem;margin-bottom:18px;
+  }
+  .durak.simdi .no{background:var(--kahve);color:var(--beyaz)}
+  .durak h3{margin:0 0 4px;font-size:1.3rem;font-weight:800}
+  .durak .zaman{font-weight:600;color:var(--kahve);font-size:1rem;margin:0 0 8px}
+  .durak p{margin:0;color:var(--soluk);font-size:1.02rem}
+  .durak .dugme{margin-top:14px;padding:10px 16px;font-size:.98rem}
+
+  /* Gün akışı */
+  .akis-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:56px}
+  .bilgi-kunye{border-top:6px solid var(--kahve);padding-top:18px}
+  .bilgi-kunye dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:10px 20px}
+  .bilgi-kunye dt{font-weight:800}
+  .bilgi-kunye dd{margin:0;color:var(--soluk)}
+  .akis{list-style:none;margin:0;padding:0;counter-reset:a}
+  .akis li{counter-increment:a;display:grid;grid-template-columns:3rem 1fr;gap:8px;padding:16px 0;border-bottom:1px solid var(--cizgi)}
+  .akis li:first-child{padding-top:0}
+  .akis li::before{content:counter(a);font-weight:900;color:var(--kahve);font-size:1.3rem;line-height:1.4}
+  .akis strong{display:block;font-size:1.15rem}
+  .akis span{color:var(--soluk);font-size:1rem}
+
+  /* Konuklar */
+  .konuk{background:var(--kahve);color:var(--beyaz)}
+  .konuk .kap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:center}
+  .konuk h2{margin-bottom:10px}
+  .konuk p{margin:0;opacity:.9;max-width:38em}
+  .silik-levha{border:4px dashed rgba(255,255,255,.6);border-radius:12px;padding:22px 28px;font-weight:800;font-size:1.3rem;text-align:center;min-width:220px}
+
+  /* Katılım */
+  .katilim-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+  .kutu{background:var(--beyaz);border:1px solid var(--cizgi);border-radius:14px;padding:30px}
+  .kutu.vurgu{border:3px solid var(--kahve)}
+  .kutu h3{margin:0 0 10px;font-size:1.45rem;font-weight:900}
+  .kutu p{margin:0 0 20px;color:var(--soluk)}
+  .kutu ul{margin:0 0 22px;padding-left:1.2em;color:var(--soluk)}
+  .kutu li{margin-bottom:6px}
+
+  /* SSS */
+  details{border-bottom:1px solid var(--cizgi);padding:18px 0}
+  details:first-of-type{border-top:1px solid var(--cizgi)}
+  summary{cursor:pointer;font-weight:800;font-size:1.15rem;list-style:none;display:flex;justify-content:space-between;gap:16px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-weight:900;color:var(--kahve);font-size:1.5rem;line-height:1}
+  details[open] summary::after{content:"−"}
+  details p{margin:12px 0 0;color:var(--soluk);max-width:44em}
+
+  /* Ortaklar ve alt bilgi */
+  .sss-iletisim{margin:28px 0 0;color:var(--soluk)}
+  .sss-iletisim a{font-weight:700}
+  .ortaklar{background:var(--tuf)}
+  .ortak-liste{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:40px;align-items:start}
+  .logo-kutu{background:var(--beyaz);border-radius:12px;display:grid;place-items:center;padding:18px}
+  .logo-kutu img{max-width:100%;height:auto;display:block}
+  .duzenleyen-logo{padding:22px}
+  .duzenleyen-logo img{width:100%;max-width:300px}
+  @media (max-width:860px){.duzenleyen-logo img{max-width:220px}}
+  .ortak-liste ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+  .ortak-liste li{height:124px}
+  .ortak-liste li img{max-height:84px;width:auto}
+  .ortak-liste li.genis{grid-column:span 2}
+  .ortak-liste li.genis img{max-height:70px}
+  .ortak-baslik{font-size:1rem;font-weight:600;color:var(--soluk);margin:0 0 10px;line-height:1.4;letter-spacing:0}
+  footer{background:var(--kahve-koyu);color:#d9cfc5;padding:32px 0;font-size:.95rem}
+  footer .kap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  footer a{color:#fff;font-weight:700;font-size:1.15rem}
+  .alt-baslik-f{display:block;color:#fff;font-size:.95rem;margin-bottom:2px}
+  .alt-sag{display:flex;flex-direction:column;gap:4px;text-align:right;align-self:end}
+  @media (max-width:860px){.alt-sag{text-align:left}}
+
+  /* ---------- Mobil ---------- */
+  @media (max-width:860px){
+    .hero{padding-top:36px}
+    .hero .kap,.neden,.akis-grid,.ortak-liste{grid-template-columns:1fr;gap:36px}
+    .hero-yazi{padding-bottom:0;order:-1}
+    .levha-ic{padding:20px 18px;grid-template-columns:1fr}
+    .piktogram{grid-row:auto;width:64px;height:64px}
+    .duraklar{grid-template-columns:1fr;gap:28px}
+    .duraklar::before{left:27px;right:auto;top:0;bottom:0;width:6px;height:auto}
+    .durak{padding-left:84px;padding-right:0}
+    .durak .no{position:absolute;left:0;top:0}
+    .katilim-grid{grid-template-columns:1fr}
+    .konuk .kap{grid-template-columns:1fr}
+    section{padding:60px 0}
+  }
+  @media (max-width:480px){
+    .ortak-liste ul{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .ortak-liste li{height:104px}.ortak-liste li img{max-height:68px}
+    .ust nav{gap:14px}
+  }
+</style>
+</head>
+<body>
+
+<div class="ust">
+  <div class="kap">
+    <div class="duzenleyici">
+      <span>Düzenleyici kuruluş</span>
+      <img src="logolar/urtav.png" alt="ÜRTAV – Ürgüp Tanıtma Vakfı" width="136" height="68">
+    </div>
+    <nav aria-label="Sayfa içi">
+      <a href="#surec">Süreç</a>
+      <a href="#program">Program</a>
+      <a href="#katilim">Katılım</a>
+      <a href="#sss">Sık sorulan sorular</a>
+      <a href="#iletisim">İletişim</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="kap">
+    <div class="levha-direk">
+      <div class="levha" role="img" aria-label="Turistik yön levhası: Ürgüp Turizmi Ortak Akıl Çalıştayı, İlk Durak Ürgüp, 15 Aralık 2026">
+        <div class="levha-ic">
+          <svg class="piktogram" viewBox="0 0 96 96" aria-hidden="true">
+            <!-- peribacası ve sıcak hava balonu piktogramı -->
+            <g fill="#fff">
+              <ellipse cx="66" cy="22" rx="15" ry="17"/>
+              <path d="M54 33 L62 46 H70 L78 33 Z" opacity=".95"/>
+              <rect x="61" y="48" width="10" height="7" rx="1.5"/>
+              <path d="M10 92 C14 74 16 60 19 52 C15 48 14 42 19 39 C25 36 31 39 31 45 C31 48 29 51 27 52 C30 62 32 76 35 92 Z"/>
+              <path d="M34 92 C37 80 39 70 42 64 C39 61 39 56 43 54 C48 52 52 55 51 60 C51 62 50 64 48 65 C51 74 53 84 55 92 Z"/>
+              <rect x="4" y="90" width="88" height="4" rx="2"/>
+            </g>
+          </svg>
+          <div class="levha-ust">Ürgüp Turizmi Ortak Akıl Çalıştayı</div>
+          <h1>İlk Durak<br>Ürgüp</h1>
+          <div class="levha-alt">
+            <span>15 Aralık 2026 · Mustafa Otel</span>
+            <span class="km">0 km</span>
+          </div>
+        </div>
+      </div>
+      <div class="direkler" aria-hidden="true"><span></span><span></span></div>
+    </div>
+
+    <div class="hero-yazi">
+      <p class="alt-baslik">Ürgüp turizminin geleceğini birlikte konuşuyoruz.</p>
+      <p>Esnaf, otelci, rehber, muhtar, öğrenci, emekli… Bu kentte yaşayan ya da bu kentten ekmek kazanan herkesin söyleyecek bir sözü var. Önce anketle dinliyoruz, sonra aynı masalarda buluşuyoruz.</p>
+      <div class="dugmeler">
+        <a class="dugme dolu" data-link="anket" href="#">Ankete katılın</a>
+        <a class="dugme bos" data-link="basvuru" href="#">Çalıştaya katılımcı adayı olmak için başvurun</a>
+      </div>
+    </div>
+  </div>
+  <div class="yol" aria-hidden="true"></div>
+</header>
+
+<main>
+
+<figure class="manzara">
+  <img src="gorseller/urgup-panorama.jpg"
+       srcset="gorseller/urgup-panorama-kucuk.jpg 1000w, gorseller/urgup-panorama.jpg 2000w"
+       sizes="100vw" width="2000" height="1500" loading="lazy"
+       alt="Tepeden Ürgüp: kayaya oyulmuş yapılar, taş evler, minare ve arkada uzanan vadi">
+  <figcaption><div class="kap">Ürgüp</div></figcaption>
+</figure>
+
+<section aria-labelledby="neden-baslik">
+  <div class="kap neden">
+    <div>
+      <h2 id="neden-baslik">Neden bir çalıştay?</h2>
+      <blockquote>Ürgüp’ün geleceği için ortak akıl masası kuruyoruz.</blockquote>
+    </div>
+    <div>
+      <p>Ürgüp, Kapadokya’ya gelen yolcunun ilk durağı olmuş bir kent. Bugün bölgedeki rekabet değişti, ziyaretçinin beklentisi değişti. Doluluk oranları ve ziyaretçi başına harcama, kentin geleceği için artık en önemli göstergeler.</p>
+      <p>Bu çalıştay; yerel yönetimleri, kamu kurumlarını, sektörü ve kent halkını aynı masaya oturtuyor. Amaç güçlü ve zayıf yanlarımızı, fırsatları ve tehditleri birlikte ortaya koymak ve bunlardan somut stratejiler çıkarmak.</p>
+      <p>Çıkan sonuçlar bir raporla kamuoyuyla paylaşılacak ve bundan sonraki adımların başlangıç belgesi olacak.</p>
+    </div>
+  </div>
+</section>
+
+<section class="guzergah" id="surec" aria-labelledby="surec-baslik">
+  <div class="kap">
+    <h2 id="surec-baslik">Güzergâh</h2>
+    <p class="giris">Süreç dört duraktan oluşuyor. Şu an ilk duraktayız: anket açık.</p>
+    <ol class="duraklar">
+      <li class="durak simdi">
+        <div class="no">1</div>
+        <h3>Ön anket</h3>
+        <p class="zaman">Şimdi açık</p>
+        <p>Yaklaşık 10–12 dakika. Yanıtlar anonim. Çalıştayda hangi konuların konuşulacağını bu anket belirleyecek.</p>
+        <a class="dugme dolu" data-link="anket" href="#">Ankete katılın</a>
+      </li>
+      <li class="durak">
+        <div class="no">2</div>
+        <h3>Çalıştay</h3>
+        <p class="zaman">15 Aralık 2026</p>
+        <p>Davetli yaklaşık 200 katılımcı, yuvarlak masalarda Dünya Kafe yöntemiyle çalışacak.</p>
+      </li>
+      <li class="durak">
+        <div class="no">3</div>
+        <h3>Rapor</h3>
+        <p class="zaman">Çalıştayın ardından</p>
+        <p>Masalardan çıkan bulgular derlenip yayımlanacak ve tüm paydaşlara ulaştırılacak.</p>
+      </li>
+      <li class="durak">
+        <div class="no">4</div>
+        <h3>Strateji</h3>
+        <p class="zaman">Sonraki dönem</p>
+        <p>Rapor; yerel yönetimlerin ve kurumların atacağı adımlar için ortak başlangıç noktası olacak.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section id="program" aria-labelledby="program-baslik">
+  <div class="kap akis-grid">
+    <div>
+      <h2 id="program-baslik">Çalıştay günü</h2>
+      <p class="giris" style="margin-bottom:28px">Saatli program, konuşmacılar kesinleştiğinde burada yayımlanacak.</p>
+      <div class="bilgi-kunye">
+        <dl>
+          <dt>Tarih</dt><dd>15 Aralık 2026, Salı</dd>
+          <dt>Yer</dt><dd>Mustafa Otel, Ürgüp</dd>
+          <dt>Katılım</dt><dd>Davetle, yaklaşık 200 kişi</dd>
+          <dt>Yöntem</dt><dd>Dünya Kafe, GZFT (SWOT) ve TOWS analizi</dd>
+          <dt>Yürütücü</dt><dd>Deneyimli bir akademisyen moderasyonunda</dd>
+        </dl>
+      </div>
+    </div>
+    <ol class="akis">
+      <li><div><strong>Karşılama ve kayıt</strong><span>Katılımcılar masa numaralarını alır.</span></div></li>
+      <li><div><strong>Açılış</strong><span>Düzenleyen ve ortak kurumların kısa konuşmaları.</span></div></li>
+      <li><div><strong>Konuk konuşmalar</strong><span>Turizm ve kent üzerine ilham veren iki konuşma.</span></div></li>
+      <li><div><strong>Anket bulguları</strong><span>Ön anketten çıkan tablo ve masalara düşen sorular.</span></div></li>
+      <li><div><strong>Dünya Kafe masaları: GZFT</strong><span>Masalar güçlü ve zayıf yönleri, fırsat ve tehditleri tartışır; katılımcılar turlar arasında masa değiştirir.</span></div></li>
+      <li><div><strong>Öğle arası</strong></div></li>
+      <li><div><strong>TOWS: bulgulardan stratejiye</strong><span>Masalar, GZFT çıktılarını eşleştirerek öneri stratejiler üretir.</span></div></li>
+      <li><div><strong>Paylaşım ve kapanış</strong><span>Masa sözcüleri sonuçları sunar; rapor takvimi açıklanır.</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="konuk" aria-labelledby="konuk-baslik">
+  <div class="kap">
+    <div>
+      <h2 id="konuk-baslik">Konuklarımız yolda</h2>
+      <p>Çalıştayın açılışında, turizm ve kentlerin yeniden doğuşu üzerine söyleyecekleri olan iki tanınmış ismi ağırlayacağız. İsimleri yakında burada açıklayacağız.</p>
+    </div>
+    <div class="silik-levha" aria-hidden="true">Yakında</div>
+  </div>
+</section>
+
+<section id="katilim" aria-labelledby="katilim-baslik">
+  <div class="kap">
+    <h2 id="katilim-baslik">Nasıl katılırım?</h2>
+    <p class="giris">İki ayrı yol var. Anket herkese açık; çalıştay ise sınırlı kontenjanlı ve davetle yapılacak.</p>
+    <div class="katilim-grid">
+      <div class="kutu vurgu">
+        <h3>Ankete katılın</h3>
+        <p>Ürgüp’te yaşıyor, çalışıyor ya da Ürgüp’le bağınız varsa görüşünüz bizim için değerli.</p>
+        <ul>
+          <li>10–12 dakika sürer</li>
+          <li>Yanıtlarınız anonimdir</li>
+          <li>Telefondan rahatça doldurulabilir</li>
+        </ul>
+        <a class="dugme dolu" data-link="anket" href="#">Ankete katılın</a>
+      </div>
+      <div class="kutu">
+        <h3>Çalıştaya katılımcı adayı olmak için başvurun</h3>
+        <p>Masalarda yer almak istiyorsanız başvuru formunu doldurarak katılımcı adayı olun. Katılımcılar, paydaş dağılımı gözetilerek düzenleme kurulunca belirlenir.</p>
+        <ul>
+          <li>Başvuru formu ankete bağlı değildir</li>
+          <li>Rapor yayımlandığında haberdar olmak için de kullanabilirsiniz</li>
+        </ul>
+        <a class="dugme bos" data-link="basvuru" href="#">Başvuru formunu açın</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sss" aria-labelledby="sss-baslik" style="padding-top:0">
+  <div class="kap">
+    <h2 id="sss-baslik">Sık sorulan sorular</h2>
+    <details>
+      <summary>Çalıştay herkese açık mı?</summary>
+      <p>Hayır. Verimli çalışabilmek için katılım yaklaşık 200 kişiyle sınırlı ve davetle yapılacak. Kamu kurumları, yerel yönetimler, sektör temsilcileri, sivil toplum ve kent halkından dengeli bir katılım hedefleniyor. Başvuru formunu doldurarak değerlendirmeye alınabilirsiniz.</p>
+    </details>
+    <details>
+      <summary>Anket yanıtlarım kimliğimle eşleşir mi?</summary>
+      <p>Hayır. Anket anonimdir. İletişim bilgileriniz yalnızca ayrı başvuru formunda istenir ve anket yanıtlarıyla bağlantılandırılmaz.</p>
+    </details>
+    <details>
+      <summary>Katılım ücretli mi?</summary>
+      <p>Hayır. Çalıştayın tüm giderlerini ÜRTAV ve çalıştay paydaşları karşılıyor; katılımcılar için ücret yoktur.</p>
+    </details>
+    <details>
+      <summary>Neden yalnızca turizm?</summary>
+      <p>Ürgüp’ün ekonomisinin ve kimliğinin merkezinde turizm var. Odağı dar tutmak, bir günlük çalışmadan uygulanabilir sonuçlar çıkarmayı kolaylaştırıyor. Turizmi etkileyen kent sorunları da doğal olarak masalarda konuşulacak.</p>
+    </details>
+    <details>
+      <summary>Sonuçlar ne olacak?</summary>
+      <p>Masalardan çıkan bulgular bir raporda toplanıp yayımlanacak ve paydaşlara dağıtılacak. Rapor, kurumların bundan sonra atacağı adımlar için ortak başlangıç belgesi olacak.</p>
+    </details>
+    <p class="sss-iletisim">Yanıtını burada bulamadığınız bir soru için bize yazın: <a href="mailto:urguptav@gmail.com">urguptav@gmail.com</a></p>
+  </div>
+</section>
+
+<section class="ortaklar" aria-labelledby="ortak-baslik">
+  <div class="kap ortak-liste">
+    <div>
+      <h2 id="ortak-baslik" class="ortak-baslik">Düzenleyici kuruluş</h2>
+      <div class="logo-kutu duzenleyen-logo"><img src="logolar/urtav.png" alt="ÜRTAV – Ürgüp Tanıtma Vakfı" width="480" height="240"></div>
+    </div>
+    <div>
+      <p class="ortak-baslik">Ortaklar</p>
+      <ul>
+        <li class="logo-kutu"><img src="logolar/kaymakamlik.png" alt="T.C. Ürgüp Kaymakamlığı" width="204" height="320"></li>
+        <li class="logo-kutu"><img src="logolar/urgup-belediyesi.png" alt="Ürgüp Belediyesi" width="274" height="320"></li>
+        <li class="logo-kutu"><img src="logolar/ortahisar.png" alt="Ortahisar Belediyesi" width="594" height="320"></li>
+        <li class="logo-kutu"><img src="logolar/mustafapasa.png" alt="Mustafapaşa Belediyesi" width="320" height="320"></li>
+        <li class="logo-kutu genis"><img src="logolar/alan-baskanligi.png" alt="T.C. Kültür ve Turizm Bakanlığı Kapadokya Alan Başkanlığı" width="971" height="320"></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer id="iletisim">
+  <div class="kap">
+    <div>
+      <strong class="alt-baslik-f">İletişim</strong>
+      <a href="mailto:urguptav@gmail.com">urguptav@gmail.com</a>
+    </div>
+    <div class="alt-sag">
+      <span>İlk Durak Ürgüp · Ürgüp Turizmi Ortak Akıl Çalıştayı · 2026</span>
+      <span>Düzenleyici kuruluş: ÜRTAV – Ürgüp Tanıtma Vakfı</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var s = window.SITE || {};
+    document.querySelectorAll('[data-link]').forEach(function(a){
+      var url = s[a.getAttribute('data-link')];
+      if(url){ a.href = url; a.target = '_blank'; a.rel = 'noopener'; }
+    });
+  })();
+</script>
+</body>
+</html>
